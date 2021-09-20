@@ -24,4 +24,5 @@ public class PDSFile {
 	
 	private String pdsfile;
 	
+	private Long pdsno;
 }

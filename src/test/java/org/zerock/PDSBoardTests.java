@@ -96,17 +96,35 @@ public class PDSBoardTests {
 		log.info("DELETE PDSFILE: "+count);
 		
 	}
-	*/
+	
 	@Test
 	public void insertDummies() {
 		List<PDSBoard> list = new ArrayList<PDSBoard>();
 		IntStream.range(1, 100).forEach(i->{
+			PDSBoard pds = new PDSBoard();
+			pds.setPname("자료 "+i);
 			
+			PDSFile file1 = new PDSFile();
+			file1.setPdsfile("file1.docs");
+			
+			PDSFile file2 = new PDSFile();
+			file2.setPdsfile("file2s.docs");
+			
+			pds.setFiles(Arrays.asList(file1,file2));
+			
+			log.info("try to save pds");
+			
+			list.add(pds);
 		});
 		
-		
-		
-		
+		repo.saveAll(list);
+	}
+	*/
+	
+	@Test
+	public void viewSummary() {
+		repo.getSummary().forEach(arr->
+		log.info(Arrays.toString(arr)));
 	}
 	
 
